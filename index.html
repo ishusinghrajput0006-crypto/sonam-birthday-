@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sonam 🎂</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: linear-gradient(135deg, #fff0f5, #f8d7e8, #e8dcff);
+  color: #63344f;
+  overflow-x: hidden;
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.sparkle {
+  position: absolute;
+  animation: floatUp linear infinite;
+  opacity: .7;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(105vh) rotate(0deg); }
+  to { transform: translateY(-15vh) rotate(360deg); }
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 15px;
+}
+
+.card {
+  width: 100%;
+  max-width: 460px;
+  padding: 34px 24px;
+  text-align: center;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 28px;
+  box-shadow: 0 15px 55px #9b598d25;
+  backdrop-filter: blur(12px);
+  animation: appear .7s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(18px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.page { display: none; }
+.page.active { display: block; }
+
+.emoji {
+  font-size: 62px;
+  margin-bottom: 18px;
+  animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+  50% { transform: translateY(-8px); }
+}
+
+.tag {
+  display: inline-block;
+  padding: 7px 15px;
+  border-radius: 30px;
+  background: #ffe0ed;
+  color: #a34875;
+  font: 12px Arial, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 19px;
+}
+
+h1 {
+  font-size: clamp(30px, 8vw, 43px);
+  line-height: 1.2;
+  color: #bd5585;
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: 27px;
+  color: #b44f80;
+  margin-bottom: 18px;
+  line-height: 1.3;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #76546a;
+  margin: 12px 0;
+}
+
+.name {
+  color: #d14d89;
+  font-style: italic;
+}
+
+.divider {
+  color: #d990b4;
+  letter-spacing: 8px;
+  margin: 20px 0;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 40px;
+  padding: 14px 24px;
+  transition: .25s;
+}
+
+.next {
+  margin-top: 20px;
+  background: linear-gradient(110deg, #d75b96, #a87be8);
+  color: white;
+  box-shadow: 0 7px 20px #b76b9b30;
+}
+
+.next:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px #b76b9b45;
+}
+
+.back {
+  margin-top: 20px;
+  margin-right: 7px;
+  background: #f8e5ef;
+  color: #a34d78;
+}
+
+.progress {
+  font: 12px Arial, sans-serif;
+  letter-spacing: 2px;
+  margin-top: 25px;
+  color: #bb8aa7;
+}
+
+.letter {
+  background: #fff5fa;
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px dashed #e5a6c5;
+  margin-top: 16px;
+}
+
+.footer {
+  font-size: 12px;
+  opacity: .7;
+  margin-top: 24px;
+}
+
+@media(max-width: 380px) {
+  .card { padding: 28px 17px; }
+  p { font-size: 16px; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<div class="wrapper">
+<div class="card">
+
+  <!-- PAGE 1 -->
+  <section class="page active">
+    <div class="emoji">🎂</div>
+    <div class="tag">A little surprise for you</div>
+    <h1>Happy Birthday,<br>
+      <span class="name">Sonam! ♡</span>
+    </h1>
+    <div class="divider">✦ ♡ ✦</div>
+    <p>
+      Today isn't just another date on the calendar.
+      It's the day someone wonderful came into this world.
+    </p>
+    <p>
+      So, Sonam, this little corner of the internet
+      is all yours today. 💗
+    </p>
+    <button class="next" onclick="go(1)">Open Your Surprise ✨</button>
+    <div class="progress">01 / 07</div>
+  </section>
+
+  <!-- PAGE 2 -->
+  <section class="page">
+    <div class="emoji">🌷</div>
+    <div class="tag">A special wish</div>
+    <h2>For Your Beautiful Journey</h2>
+    <p>
+      Dear Sonam, may this new chapter of your life
+      bring you closer to everything your heart has
+      quietly wished for.
+    </p>
+    <p>
+      May your mornings begin with hope, your days
+      bring little reasons to smile, and your nights
+      end with a peaceful heart.
+    </p>
+    <p>
+      You deserve a year full of beautiful possibilities. 🌸
+    </p>
+    <button class="back" onclick="go(0)">← Back</button>
+    <button class="next" onclick="go(2)">Next Surprise ✨</button>
+    <div class="progress">02 / 07</div>
+  </section>
+
+  <!-- PAGE 3 -->
+  <section class="page">
+    <div class="emoji">🦋</div>
+    <div class="tag">A little reminder</div>
+    <h2>Never Forget Your Worth</h2>
+    <p>
+      Sonam, always remember that you don't have to
+      be perfect to be amazing.
+    </p>
+    <p>
+      You are allowed to learn, to grow, to change
+      your mind and to take life one step at a time.
+    </p>
+    <p>
+      I hope this year gives you more confidence
+      to chase your dreams and more courage to
+      believe in yourself. 💕
+    </p>
+    <button class="back" onclick="go(1)">← Back</button>
+    <button class="next" onclick="go(3)">Next Surprise ✨</button>
+    <div class="progress">03 / 07</div>
+  </section>
+
+  <!-- PAGE 4 -->
+  <section class="page">
+    <div class="emoji">🌙</div>
+    <div class="tag">From the heart</div>
+    <h2>May Life Be Gentle With You</h2>
+    <p>
+      I hope life surprises you in the sweetest ways.
+      May the things that worry you become easier,
+      and the things that make you happy find their
+      way to you more often.
+    </p>
+    <p>
+      When life gets busy, I hope you still find
+      time for yourself, your favourite people,
+      your little joys and your biggest dreams.
+    </p>
+    <p>
+      You deserve happiness that feels real
+      and peace that lasts. 🫶
+    </p>
+    <button class="back" onclick="go(2)">← Back</button>
+    <button class="next" onclick="go(4)">Next Surprise ✨</button>
+    <div class="progress">04 / 07</div>
+  </section>
+
+  <!-- PAGE 5 -->
+  <section class="page">
+    <div class="emoji">🎁</div>
+    <div class="tag">Your birthday wishes</div>
+    <h2>A Little Box of Good Things</h2>
+    <div class="letter">
+      <p>🌸 Good health for all your tomorrows.</p>
+      <p>💗 Genuine people who value you.</p>
+      <p>✨ Opportunities that help you grow.</p>
+      <p>🌈 Memories that make you smile years later.</p>
+      <p>🕊️ Peace in your heart, whatever the season.</p>
+    </div>
+    <p>
+      If I could wish a hundred things for you,
+      your happiness would be at the top of the list.
+    </p>
+    <button class="back" onclick="go(3)">← Back</button>
+    <button class="next" onclick="go(5)">One More Wish 💌</button>
+    <div class="progress">05 / 07</div>
+  </section>
+
+  <!-- PAGE 6 -->
+  <section class="page">
+    <div class="emoji">💌</div>
+    <div class="tag">A small heartfelt note</div>
+    <h2>Dear Sonam,</h2>
+    <div class="letter">
+      <p>
+        Maybe a birthday message is only a small thing,
+        but I hope these words bring a genuine smile
+        to your face.
+      </p>
+      <p>
+        May you always have reasons to laugh freely,
+        people you can be yourself around, and dreams
+        that make you excited to wake up every morning.
+      </p>
+      <p>
+        No matter what this next year brings,
+        I hope it becomes a chapter you look back on
+        with a happy heart.
+      </p>
+      <p>
+        Keep being yourself, keep growing,
+        and keep making beautiful memories. 🌷
+      </p>
+    </div>
+    <button class="back" onclick="go(4)">← Back</button>
+    <button class="next" onclick="go(6)">Final Surprise 🎉</button>
+    <div class="progress">06 / 07</div>
+  </section>
+
+  <!-- PAGE 7 -->
+  <section class="page">
+    <div class="emoji">🎉</div>
+    <div class="tag">The final surprise</div>
+    <h1>Happy Birthday<br>
+      <span class="name">Sonam! 💖</span>
+    </h1>
+    <p>
+      May your smile stay bright, your heart stay kind,
+      and your dreams keep getting bigger.
+    </p>
+    <p>
+      May this year bring unexpected happiness,
+      beautiful beginnings and countless moments
+      worth remembering.
+    </p>
+    <div class="divider">♡ ✦ ♡ ✦ ♡</div>
+    <h2>Make a Wish! 🕯️</h2>
+    <p>
+      Close your eyes for a moment, think of something
+      your heart truly wants, and make your wish.
+    </p>
+    <p>
+      Here's to your day, your dreams, and an amazing
+      year ahead. You deserve all the good things
+      life has to offer. 🌹
+    </p>
+    <p><strong>With warm wishes, just for you. 💌</strong></p>
+    <button class="next" onclick="celebrate()">Celebrate Again 🎊</button>
+    <div class="progress">07 / 07 · MADE JUST FOR YOU</div>
+  </section>
+
+  <div class="footer">A little birthday magic ✨ Made with care ♡</div>
+
+</div>
+</div>
+
+<script>
+const pages = document.querySelectorAll('.page');
+let current = 0;
+
+function go(index) {
+  pages[current].classList.remove('active');
+  current = index;
+  pages[current].classList.add('active');
+
+  const card = document.querySelector('.card');
+  card.style.animation = 'none';
+  void card.offsetWidth;
+  card.style.animation = 'appear .5s ease';
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function celebrate() {
+  for (let i = 0; i < 45; i++) {
+    const item = document.createElement('span');
+    item.textContent = ['🎉', '💖', '✨', '🌸', '🎊'][
+      Math.floor(Math.random() * 5)
+    ];
+    item.style.position = 'fixed';
+    item.style.left = Math.random() * 100 + 'vw';
+    item.style.top = '-35px';
+    item.style.fontSize = (16 + Math.random() * 20) + 'px';
+    item.style.zIndex = '10';
+    item.style.pointerEvents = 'none';
+    document.body.appendChild(item);
+
+    const duration = 2000 + Math.random() * 2500;
+    const drift = (Math.random() - .5) * 180;
+    const animation = item.animate([
+      { transform: 'translate(0, 0) rotate(0deg)', opacity: 1 },
+      {
+        transform: `translate(${drift}px, 105vh) rotate(600deg)`,
+        opacity: .1
+      }
+    ], { duration, easing: 'ease-in' });
+
+    animation.onfinish = () => item.remove();
+  }
+}
+
+const stars = document.getElementById('stars');
+
+for (let i = 0; i < 28; i++) {
+  const s = document.createElement('span');
+  s.className = 'sparkle';
+  s.textContent = ['✦', '♡', '·', '✧'][i % 4];
+  s.style.left = Math.random() * 100 + '%';
+  s.style.animationDuration = (8 + Math.random() * 15) + 's';
+  s.style.animationDelay = (-Math.random() * 20) + 's';
+  s.style.fontSize = (12 + Math.random() * 17) + 'px';
+  s.style.color = ['#d879aa', '#b29be8', '#f2b8cb'][i % 3];
+  stars.appendChild(s);
+}
+</script>
+
+</body>
+</html>
